@@ -5,6 +5,19 @@ body{
     margin: 0
 }
 
+a{
+    text-decoration: none;
+    color: #71717A;
+}
+
+p{
+    margin: 0
+}
+
+.iconstyles{
+    border-radius: 8.533px;
+    padding: 10px;
+}
 
 div#navbar{
     display: flex;
@@ -18,11 +31,6 @@ div#barinterior{
     align-items: center;
     gap: 48px;
     
-}
-
-a{
-    text-decoration: none;
-    color: #71717A;
 }
 
 .menupage{
@@ -63,14 +71,19 @@ div#userinterior{
     font-weight: 600;
 }
 .pagecontent{
-    padding: 0px 24px 24px 24px;
+    padding: 0px 124px 24px 24px;
+    display: flex;
+    gap: 41px;
 }
+
+.leftSidePage{
+    flex: 1;
+}
+
 .moneybalance{
     background:#161716;
     padding: 32px 24px;
     display: flex;
-    width: 899px;
-    height: auto;
     border-radius: 28px;
     border: 1px solid rgba(255, 255, 255, 0.08);
 }
@@ -80,7 +93,7 @@ div#userinterior{
     align-items: flex-start;
     gap: 12px;
 }
-.wallet{
+.walletname{
     color: white;
     gap: 8px;
     display: flex;
@@ -93,14 +106,11 @@ div#userinterior{
 .accountbalance{
     display: flex;
     align-items: center;
-    gap: 12px
-}
-.money{
+    gap: 12px;
     color: white;
     font-size: 36px;
     font-family: "Mulish";
     font-weight: 700;
-    margin: 0;
 }
 
 .addtransaction{
@@ -115,6 +125,7 @@ div#userinterior{
     padding: 8px 16px;
     color: white;
     display: flex;
+    align-items: center;
     gap: 8px;
     font-family: "Mulish";
     font-size: 14px;
@@ -124,5 +135,82 @@ div#userinterior{
 
 .transactionbutton:hover{
     background: #55b02ebd;
+}
 
+.investments{
+    background: rgba(255, 255, 255, 0.03);
+    padding: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    border-radius: 20px;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.inflowoutflow{
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    gap: 12px;
+}
+
+.financialicons{
+    color: #71717A;
+    gap: 8px;
+    display: flex;
+    align-items: center;
+    font-family: "Mulish";
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.financialvalue{
+    color: white;
+    font-size: 24px;
+    font-family: "Mulish";
+    font-weight: 700;
+}
+
+.transactionsDisplay{
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 24px;
+    gap: 24px;
+    display: flex;
+    flex-direction:column;
+    width: 30%;
+}
+
+.transactionsName{
+    color: white;
+    font-size: 18px;
+    font-family: "Mulish";
+    font-weight: 700;
+    align-content: center;
+}
+
+.showAll{
+    margin-left: auto;
+}
+
+.showAllInterior{
+    color: white;
+    padding: 8px 16px;
+    border-radius: 100px;
+    border:1px solid rgba(255, 255, 255, 0.08);
+    background: #0f0e11;
+    font-family: "Mulish";
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.transactionsInterior{
+    display: flex;
+}
+
+.hrDisplay{
+    border-bottom:1px solid rgba(255, 255, 255, 0.08);
 }

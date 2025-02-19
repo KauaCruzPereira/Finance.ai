@@ -33,32 +33,81 @@
         </div>
       </div>
     </div>
+    <h1 class="pagetitle" style="padding: 0px 24px 0px">Dashboard</h1>
     <div class="pagecontent">
-      <h1 class="pagetitle">Dashboard</h1>
-      <div class="moneybalance">
-        <div class="leftside">
-          <div class="wallet">
-            <img
-              src="images/Wallet.svg"
-              alt="walleticon"
-              style="background: #0f0e11; padding: 10px; border-radius: 8.533px"
-            />
-            <p>Saldo</p>
+      <div class="leftSidePage">
+        <div class="moneybalance">
+          <div class="leftside">
+            <div class="walletname">
+              <img
+                src="images/Wallet.svg"
+                alt="ÌconeCarteira"
+                style="background: #0f0e11; padding: 10px; border-radius: 8.533px"
+              />
+              <p>Saldo</p>
+            </div>
+            <div class="accountbalance">
+              <p>R$ 2.700</p>
+              <img src="images/eye.svg" alt="Esconder/Mostrar" />
+            </div>
           </div>
-          <div class="accountbalance">
-            <p class="money">R$2,700</p>
-            <img src="images/eye.svg" alt="show/hide" />
+          <div class="addtransaction">
+            <button class="transactionbutton">
+              Adicionar Transação<img
+                src="images/arrow-down-up.svg"
+                alt="SetaCimaEBaixo"
+              />
+            </button>
           </div>
         </div>
-        <div class="addtransaction">
-          <button class="transactionbutton">
-            Adicionar Transação<img
-              src="images/arrow-down-up.svg"
-              alt="up&downarrows"
-            />
-          </button>
+        <div style="display: flex; gap: 24px">
+          <div class="investments">
+            <div class="financialicons">
+              <img
+                class="iconstyles"
+                src="images/Piggy Bank.svg"
+                alt="Porquinho"
+                style="background: rgba(255, 255, 255, 0.08)"
+              />
+              <p>Investido</p>
+            </div>
+            <div class="financialvalue"><p>R$ 3.500</p></div>
+          </div>
+          <div class="inflowoutflow">
+            <div class="financialicons">
+              <img
+                class="iconstyles"
+                src="images/Trending Up.svg"
+                alt="EstatísticaAcima"
+                style="background: rgba(85, 176, 46, 0.08)"
+              />
+              <p>Receita</p>
+            </div>
+            <div class="financialvalue"><p>R$ 8.150</p></div>
+          </div>
+          <div class="inflowoutflow">
+            <div class="financialicons">
+              <img
+                class="iconstyles"
+                src="images/Trending Down.svg"
+                alt="EstatísticaAbaixo"
+                style="background: rgba(246, 53, 46, 0.08)"
+              />
+              <p>Despesas</p>
+            </div>
+            <div class="financialvalue"><p>R$ 2.950</p></div>
+          </div>
         </div>
       </div>
+        <div class="transactionsDisplay">
+          <div class="transactionsInterior">
+            <div class="transactionsName"><p>Transações</p></div>
+            <div class="showAll">
+              <button class="showAllInterior">Ver Mais</button>
+            </div>
+          </div>
+          <div class="hrDisplay"></div>
+        </div>
     </div>
   </body>
 </html>
