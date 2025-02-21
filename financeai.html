@@ -14,6 +14,100 @@
     />
   </head>
   <body>
+    <div class="modalWidth" id="modalWidth">
+      <div
+        class="backgroundModal"
+        onclick="closemodal()"
+        id="backgroundModal"
+      ></div>
+      <div class="transactionModal" id="transactionModal">
+        <div class="modalTittle">
+          <h1 class="addTransactionText">Adicionar Transação</h1>
+          <p class="financialicons">Insira as informações abaixo</p>
+        </div>
+        <div class="inputsDiv">
+          <p class="itemDescription">Título</p>
+          <input
+            type="text"
+            name="tittle"
+            class="inputs"
+            placeholder="Título"
+            required
+            id="tittle"
+          />
+        </div>
+        <div class="inputsDiv">
+          <p class="itemDescription">Valor</p>
+          <input
+            type="number"
+            name="value"
+            class="inputs"
+            placeholder="R$ 0.000,00"
+            required
+            id="value"
+            onkeyup="formatnumbers(value)"
+          />
+        </div>
+        <div class="inputsDiv">
+          <p class="itemDescription">Tipo da Transação</p>
+          <select
+            name="transactionType"
+            class="inputs"
+            required
+            id="transactionType"
+          >
+            <option value="" disabled selected>Selecione</option>
+            <option value="1">Receita</option>
+            <option value="2">Despesas</option>
+            <option value="3">Investimentos</option>
+          </select>
+        </div>
+        <div class="inputsDiv">
+          <p class="itemDescription">Método de pagamento</p>
+          <select
+            name="paymentMethod"
+            class="inputs"
+            required
+            id="paymentMethod"
+          >
+            <option value="" disabled selected>Selecione</option>
+            <option value="1">Cartão de Crédito</option>
+            <option value="2">Cartão de Débito</option>
+            <option value="3">Dinheiro</option>
+          </select>
+        </div>
+        <div class="inputsDiv">
+          <p class="itemDescription">Data</p>
+          <input type="date" name="date" class="inputs" required id="date" />
+        </div>
+        <div class="modalButtons">
+          <div style="width: 100%">
+            <button
+              class="modalButton"
+              style="background-color: #1f1f21; width: 100%"
+              onclick="closemodal()"
+              id="cancelButton"
+            >
+              Cancelar
+            </button>
+          </div>
+          <div style="width: 100%">
+            <button
+              onclick="add()"
+              class="modalButton"
+              style="
+                background-color: rgb(85, 176, 46);
+                color: rgb(255, 255, 255);
+                width: 100%;
+              "
+              id="button"
+            >
+              Adicionar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
     <div id="navbar">
       <div id="barinterior">
         <div id="logo">
@@ -33,7 +127,16 @@
         </div>
       </div>
     </div>
-    <h1 class="pagetitle" style="padding: 0px 24px 0px">Dashboard</h1>
+    <div class="header">
+      <div class="leftSideHeader">
+        <h1 class="pagetitle">Dashboard</h1>
+      </div>
+      <div class="rightSideHeader">
+        <button class="chooseMonths">
+          Novembro <img src="images/chevron-down.svg" alt="Seta Para Baixo" />
+        </button>
+      </div>
+    </div>
     <div class="pagecontent">
       <div class="leftSidePage">
         <div class="moneybalance">
@@ -42,7 +145,11 @@
               <img
                 src="images/Wallet.svg"
                 alt="ÌconeCarteira"
-                style="background: #0f0e11; padding: 10px; border-radius: 8.533px"
+                style="
+                  background: #0f0e11;
+                  padding: 10px;
+                  border-radius: 8.533px;
+                "
               />
               <p>Saldo</p>
             </div>
@@ -52,10 +159,15 @@
             </div>
           </div>
           <div class="addtransaction">
-            <button class="transactionbutton">
+            <button
+              class="transactionbutton"
+              onclick="openmodal()"
+              id="transactionButton"
+            >
               Adicionar Transação<img
                 src="images/arrow-down-up.svg"
                 alt="SetaCimaEBaixo"
+                id="transactionbutton"
               />
             </button>
           </div>
@@ -99,15 +211,74 @@
           </div>
         </div>
       </div>
-        <div class="transactionsDisplay">
-          <div class="transactionsInterior">
-            <div class="transactionsName"><p>Transações</p></div>
-            <div class="showAll">
-              <button class="showAllInterior">Ver Mais</button>
-            </div>
+      <div class="transactionsDisplay">
+        <div class="transactionsInterior">
+          <div class="transactionsName"><p>Transações</p></div>
+          <div class="showAll">
+            <button class="showAllInterior">Ver Mais</button>
           </div>
-          <div class="hrDisplay"></div>
         </div>
+        <div class="hrDisplay"></div>
+        <div class="moneyMovement">
+          <img
+            class="iconstyles"
+            style="background: rgba(85, 176, 46, 0.08)"
+            src="images/Trending Up.svg"
+            alt="EstatísticaAcima"
+          />
+          <div>
+            <p class="itemDescription">Salário</p>
+            <p class="itemDate">15 Nov, 2024</p>
+          </div>
+          <div class="earnedMoney"><p>+R$ 9.000</p></div>
+        </div>
+        <div class="moneyMovement">
+          <img
+            class="iconstyles"
+            style="background: rgba(255, 255, 255, 0.08)"
+            src="images/Piggy Bank.svg"
+            alt="Porquinho"
+          />
+          <div>
+            <p class="itemDescription">Ações</p>
+            <p class="itemDate">28 Set, 2024</p>
+          </div>
+          <div class="investedMoney"><p>-R$ 300.90</p></div>
+        </div>
+        <div class="moneyMovement">
+          <img
+            class="iconstyles"
+            style="background: rgba(246, 53, 46, 0.08)"
+            src="images/Trending Down.svg"
+            alt="EstatísticaAcima"
+          />
+          <div class="items">
+            <p class="itemDescription">Aluguel</p>
+            <p class="itemDate">02 Ago, 2024</p>
+          </div>
+          <div class="spentMoney"><p>-R$ 900.50</p></div>
+        </div>
+      </div>
     </div>
+    <script type="module">
+      import { add } from "./adddata.js";
+      import { formatnumbers } from "./formatnumber.js";
+      import { openmodal } from "./openmodal.js";
+      import { closemodal } from "./closemodal.js";
+
+      const button = document.getElementById("button");
+      button.onclick = add;
+
+      const formatnumber = document.getElementById("value");
+      formatnumber.onkeyup = formatnumbers;
+
+      const open = document.getElementById("transactionButton");
+      open.onclick = openmodal;
+
+      const close = document.getElementById("backgroundModal");
+      const cancel = document.getElementById("cancelButton");
+      close.onclick = closemodal;
+      cancel.onclick = closemodal;
+    </script>
   </body>
 </html>

@@ -8,10 +8,113 @@ body{
 a{
     text-decoration: none;
     color: #71717A;
+    font-family: "Mulish";
+    font-size: 14px;
+    font-weight: 600;
 }
 
 p{
     margin: 0
+}
+
+h1{
+    margin: 0;
+}
+
+option::after{
+    font-size: 500px;
+}
+
+::placeholder{
+    font-size: 14px;
+    color: #71717A;
+    font-family: "Mulish";
+    font-weight: 600;
+}
+
+.modalWidth{
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    position: absolute; 
+    align-items: center;
+    display: none;
+}
+
+.backgroundModal{
+    position: absolute;
+    backdrop-filter: blur(2px);
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.027);
+}
+
+
+.transactionModal{
+    position: absolute;
+    background-color: #141414;
+    padding: 20px;
+    flex-direction: column;
+    width: 20%;
+    display: flex;
+    border-radius: 16px;
+    gap:20px;
+}
+
+.addTransactionText{
+    color: white;
+    font-size:20px ;
+    font-family: "Mulish";
+    font-weight: 700;
+}
+
+.modalTittle{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.inputsDiv{
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+    align-items: start;
+}
+
+.inputs{
+    display: flex;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);   
+    padding: 8px 16px;
+    align-self: stretch;
+    background: #141414;
+    color: white;
+    font-size:14px;
+    font-family: "Mulish";
+    font-weight: 600;
+}
+
+.inputs option{
+    font-size:14px;
+    font-family: "Mulish";
+    font-weight: 600;
+}
+
+.modalButtons{
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.modalButton{
+    padding: 8px 16px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-family: "Mulish";
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
 }
 
 .iconstyles{
@@ -33,25 +136,6 @@ div#barinterior{
     
 }
 
-.menupage{
-    font-family: "Mulish", sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-    align-items: center;
-    line-height: normal;
-    letter-spacing: 0%;
-}
-
-.pagetitle{
-    color:white;
-    font-family: "Mulish", sans-serif;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: normal;
-    margin-bottom: 31px;
-    margin-top: 23px;
-
-}
 
 div#user{
     margin-left: auto;
@@ -70,14 +154,53 @@ div#userinterior{
     border: 1px solid rgba(255, 255, 255, 0.08);
     font-weight: 600;
 }
+
+.pagetitle{
+    color:white;
+    font-family: "Mulish", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 31px;
+    margin-top: 23px;
+    padding: 0px 50px 0px
+}
+
+.header{
+    display: flex;
+    align-items: center;
+}
+
+.rightSideHeader{
+    margin-left: auto;
+    padding: 0px 50px;
+}
+
+.chooseMonths{
+    background-color: #0f0e11;
+    display: flex;
+    padding: 8px 16px;
+    gap: 8px;
+    border-radius: 100px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: white;
+    font-family: "Mulish";
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
 .pagecontent{
-    padding: 0px 124px 24px 24px;
+    padding: 0px 50px 24px 50px;
     display: flex;
     gap: 41px;
 }
 
 .leftSidePage{
+    display: flex;
     flex: 1;
+    flex-direction: column;
+    gap: 24px;
 }
 
 .moneybalance{
@@ -145,6 +268,7 @@ div#userinterior{
     border-radius: 20px;
     flex-direction: column;
     gap: 12px;
+    flex: 1;
 }
 
 .inflowoutflow{
@@ -154,6 +278,7 @@ div#userinterior{
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.08);
     gap: 12px;
+    flex: 1;
 }
 
 .financialicons{
@@ -181,7 +306,7 @@ div#userinterior{
     gap: 24px;
     display: flex;
     flex-direction:column;
-    width: 30%;
+    width: 35%;
 }
 
 .transactionsName{
@@ -205,6 +330,7 @@ div#userinterior{
     font-family: "Mulish";
     font-size: 12px;
     font-weight: 700;
+    cursor: pointer;
 }
 
 .transactionsInterior{
@@ -213,4 +339,53 @@ div#userinterior{
 
 .hrDisplay{
     border-bottom:1px solid rgba(255, 255, 255, 0.08);
+    gap:24px;
+}
+
+.moneyMovement{
+    gap: 12px;
+    display: flex;
+}
+
+.itemDescription{
+    color: #ffffff;
+    align-items: center;
+    font-family: "Mulish";
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.itemDate{
+    color: #71717A;
+    align-items: center;
+    font-family: "Mulish";
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.earnedMoney{
+    margin-left: auto;
+    align-content: center;
+    color: #55B02E;
+    font-family: "Mulish";
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.investedMoney{
+    margin-left: auto;
+    align-content: center;
+    color: #ffffff;
+    font-family: "Mulish";
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.spentMoney{
+    margin-left: auto;
+    align-content: center;
+    color: #E93030;
+    font-family: "Mulish";
+    font-size: 14px;
+    font-weight: 700;
 }
