@@ -1,8 +1,10 @@
-export function formatnumbers(value) {
-    value = parseFloat(value).toLocaleString('pt-BR', {
-        style: 'decimal',
-        maximumFractionDigits: 2,
+export function formatNumbers(value) {
+    const value = e.target.value.replace(/\D/g, ''); 
+    const formattedValue = new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL',
         minimumFractionDigits: 2
-    });
-    return value
+    }).format(value / 100); 
+
+    return formattedValue
 }
