@@ -1,5 +1,5 @@
 export function formatNumbers(value) {
-    const value = e.target.value.replace(/\D/g, ''); 
+    value = value.replace(/\D/g, ''); 
     const formattedValue = new Intl.NumberFormat('pt-BR', {
         style: 'currency',
         currency: 'BRL',

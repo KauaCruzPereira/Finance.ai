@@ -347,7 +347,7 @@ div#userinterior{
     display: flex;
 }
 
-.itemDescription{
+.itemTittle{
     color: #ffffff;
     align-items: center;
     font-family: "Mulish";

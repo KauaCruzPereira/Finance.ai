@@ -12,5 +12,8 @@ export function add(){
         paymentmethod,
         date
     }
-    console.log(userdata)
+    const data = JSON.parse(localStorage.getItem('Usuários')) || []
+    data.push(userdata)
+    localStorage.setItem('Usuários', JSON.stringify(data))
+    location.reload()
 }

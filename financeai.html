@@ -13,7 +13,7 @@
       rel="stylesheet"
     />
   </head>
-  <body>
+  <body onload="displayData()" id="body">
     <div class="modalWidth" id="modalWidth">
       <div
         class="backgroundModal"
@@ -26,7 +26,7 @@
           <p class="financialicons">Insira as informações abaixo</p>
         </div>
         <div class="inputsDiv">
-          <p class="itemDescription">Título</p>
+          <p class="itemTittle">Título</p>
           <input
             type="text"
             name="tittle"
@@ -37,19 +37,18 @@
           />
         </div>
         <div class="inputsDiv">
-          <p class="itemDescription">Valor</p>
+          <p class="itemTittle">Valor</p>
           <input
-            type="number"
+            type="text"
             name="value"
             class="inputs"
             placeholder="R$ 0.000,00"
             required
             id="value"
-            onkeyup="formatnumbers(value)"
           />
         </div>
         <div class="inputsDiv">
-          <p class="itemDescription">Tipo da Transação</p>
+          <p class="itemTittle">Tipo da Transação</p>
           <select
             name="transactionType"
             class="inputs"
@@ -63,7 +62,7 @@
           </select>
         </div>
         <div class="inputsDiv">
-          <p class="itemDescription">Método de pagamento</p>
+          <p class="itemTittle">Método de pagamento</p>
           <select
             name="paymentMethod"
             class="inputs"
@@ -77,7 +76,7 @@
           </select>
         </div>
         <div class="inputsDiv">
-          <p class="itemDescription">Data</p>
+          <p class="itemTittle">Data</p>
           <input type="date" name="date" class="inputs" required id="date" />
         </div>
         <div class="modalButtons">
@@ -211,7 +210,7 @@
           </div>
         </div>
       </div>
-      <div class="transactionsDisplay">
+      <div class="transactionsDisplay" id="transactionsDisplay">
         <div class="transactionsInterior">
           <div class="transactionsName"><p>Transações</p></div>
           <div class="showAll">
@@ -219,66 +218,35 @@
           </div>
         </div>
         <div class="hrDisplay"></div>
-        <div class="moneyMovement">
-          <img
-            class="iconstyles"
-            style="background: rgba(85, 176, 46, 0.08)"
-            src="images/Trending Up.svg"
-            alt="EstatísticaAcima"
-          />
-          <div>
-            <p class="itemDescription">Salário</p>
-            <p class="itemDate">15 Nov, 2024</p>
-          </div>
-          <div class="earnedMoney"><p>+R$ 9.000</p></div>
-        </div>
-        <div class="moneyMovement">
-          <img
-            class="iconstyles"
-            style="background: rgba(255, 255, 255, 0.08)"
-            src="images/Piggy Bank.svg"
-            alt="Porquinho"
-          />
-          <div>
-            <p class="itemDescription">Ações</p>
-            <p class="itemDate">28 Set, 2024</p>
-          </div>
-          <div class="investedMoney"><p>-R$ 300.90</p></div>
-        </div>
-        <div class="moneyMovement">
-          <img
-            class="iconstyles"
-            style="background: rgba(246, 53, 46, 0.08)"
-            src="images/Trending Down.svg"
-            alt="EstatísticaAcima"
-          />
-          <div class="items">
-            <p class="itemDescription">Aluguel</p>
-            <p class="itemDate">02 Ago, 2024</p>
-          </div>
-          <div class="spentMoney"><p>-R$ 900.50</p></div>
-        </div>
       </div>
     </div>
     <script type="module">
       import { add } from "./adddata.js";
-      import { formatnumbers } from "./formatnumber.js";
-      import { openmodal } from "./openmodal.js";
-      import { closemodal } from "./closemodal.js";
+      import { formatNumbers } from "./formatnumber.js";
+      import { openModal } from "./openmodal.js";
+      import { closeModal } from "./closemodal.js";
+      import { displayData } from "./displaydata.js";
 
-      const button = document.getElementById("button");
-      button.onclick = add;
+      const addButton = document.getElementById("button");
+      addButton.onclick = add;
 
-      const formatnumber = document.getElementById("value");
-      formatnumber.onkeyup = formatnumbers;
+      const formatNumber = document.getElementById("value");
+      formatNumber.oninput = function (event) {
+        const inputValue = event.target.value;
+        const formattedNumber = formatNumbers(inputValue);
+        formatNumber.value = formattedNumber;
+      };
 
       const open = document.getElementById("transactionButton");
-      open.onclick = openmodal;
+      open.onclick = openModal;
 
       const close = document.getElementById("backgroundModal");
       const cancel = document.getElementById("cancelButton");
-      close.onclick = closemodal;
-      cancel.onclick = closemodal;
+      close.onclick = closeModal;
+      cancel.onclick = closeModal;
+
+      const display = document.getElementById("body");
+      display.onload = displayData;
     </script>
   </body>
 </html>
