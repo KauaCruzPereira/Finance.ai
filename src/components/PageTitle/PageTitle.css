@@ -1,0 +1,40 @@
+.pagetitle{
+    color:white;
+    font-family: "Mulish", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 31px;
+    margin-top: 23px;
+    padding: 0px 50px 0px
+}
+
+.header{
+    display: flex;
+    align-items: center;
+}
+
+.rightSideHeader{
+    margin-left: auto;
+    padding: 0px 50px;
+}
+
+.chooseMonths{
+    background-color: #0f0e11;
+    display: flex;
+    padding: 8px 16px;
+    gap: 8px;
+    border-radius: 100px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: white;
+    font-family: "Mulish";
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.chooseMonths option{
+    font-family: "Mulish";
+    font-size: 14px;
+    font-weight: 700;
+}

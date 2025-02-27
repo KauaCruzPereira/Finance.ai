@@ -1,0 +1,10 @@
+.piggyIcon{
+    color: #71717A;
+    gap: 8px;
+    display: flex;
+    align-items: center;
+    font-family: "Mulish";
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+}

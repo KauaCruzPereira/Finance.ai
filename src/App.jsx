@@ -1,0 +1,22 @@
+import './index.css'
+import { NavBar } from "./components/NavBar/NavBar"
+import { PageTitle } from './components/PageTitle/PageTitle'
+import { LeftSidePage } from './components/Home/LeftSidePage/LeftSidePage'
+import { RightSidePage } from './components/Home/RightSidePage/RIghtSidePage'
+
+function App() {
+
+  return (
+    <>
+      <NavBar />
+      <PageTitle />
+      <div className='pageContent'>
+        <LeftSidePage />
+        <RightSidePage />
+      </div>
+      
+    </>
+  )
+}
+
+export default App

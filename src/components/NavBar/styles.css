@@ -1,0 +1,31 @@
+div#navbar{
+    display: flex;
+    padding: 16px 32px;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+div#barinterior{
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    
+}
+
+div#user{
+    margin-left: auto;
+    align-items: center;
+}
+
+div#userinterior{
+    font-family: "Mulish", sans-serif;
+    font-size: 14px;
+    align-items: center;
+    color:white;
+    display: flex;
+    padding: 8px 16px;
+    gap: 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    font-weight: 600;
+}

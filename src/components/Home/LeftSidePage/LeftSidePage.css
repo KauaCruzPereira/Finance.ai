@@ -1,0 +1,121 @@
+.leftSidePage{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.leftSidePage{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.moneybalance{
+    background:#161716;
+    padding: 32px 24px;
+    display: flex;
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.leftside{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+.walletname{
+    color: white;
+    gap: 8px;
+    display: flex;
+    align-items: center;
+    font-family: "Mulish";
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.accountbalance{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: white;
+    font-size: 36px;
+    font-family: "Mulish";
+    font-weight: 700;
+}
+
+.addtransaction{
+    margin-left: auto;
+    align-content: end;
+}
+
+.transactionbutton{
+    background: #55B02E;
+    border-radius: 100px;
+    border: none;
+    padding: 8px 16px;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "Mulish";
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.transactionbutton:hover{
+    background: #55b02ebd;
+}
+
+.investments{
+    background: rgba(255, 255, 255, 0.03);
+    padding: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    border-radius: 20px;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+}
+
+.inflowoutflow{
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    gap: 12px;
+    flex: 1;
+}
+
+.iconsTextStyle{
+        color: #71717A;
+        gap: 8px;
+        display: flex;
+        align-items: center;
+        font-family: "Mulish";
+        font-size: 14px;
+        font-weight: 600;
+        margin: 0;
+}
+
+.walletTextStyle{
+        color: #ffffff;
+        gap: 8px;
+        opacity: 0.7;
+        display: flex;
+        align-items: center;
+        font-family: "Mulish";
+        font-size: 14px;
+        font-weight: 600;
+        margin: 0;
+}
+
+.financialvalue{
+    color: white;
+    font-size: 24px;
+    font-family: "Mulish";
+    font-weight: 700;
+}

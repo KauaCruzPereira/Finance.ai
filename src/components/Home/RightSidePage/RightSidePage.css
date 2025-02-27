@@ -1,0 +1,42 @@
+.transactionsDisplay{
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 24px;
+    gap: 24px;
+    display: flex;
+    flex-direction:column;
+    width: 35%;
+}
+
+.transactionsName{
+    color: white;
+    font-size: 18px;
+    font-family: "Mulish";
+    font-weight: 700;
+    align-content: center;
+}
+
+.showAll{
+    margin-left: auto;
+}
+
+.showAllInterior{
+    color: white;
+    padding: 8px 16px;
+    border-radius: 100px;
+    border:1px solid rgba(255, 255, 255, 0.08);
+    background: #0f0e11;
+    font-family: "Mulish";
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.transactionsInterior{
+    display: flex;
+}
+
+.hrDisplay{
+    border-bottom:1px solid rgba(255, 255, 255, 0.08);
+    gap:24px;
+}
