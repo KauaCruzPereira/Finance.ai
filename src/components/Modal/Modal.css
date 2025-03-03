@@ -1,0 +1,101 @@
+.ReactModal__Content{
+    position: absolute;
+    padding: 20px;
+    flex-direction: column;
+    width: 20%;
+    display: flex;
+    border-radius: 16px;
+    gap:20px;
+}
+
+::placeholder{
+    font-size: 14px;
+    color: #71717A;
+    font-family: "Mulish";
+    font-weight: 600;
+}
+
+.modalTittle{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.addTransactionText{
+    color: white;
+    font-size:20px ;
+    font-family: "Mulish";
+    font-weight: 700;
+}
+
+
+.tittleDescription{
+    color: #71717A;
+    gap: 8px;
+    display: flex;
+    align-items: center;
+    font-family: "Mulish";
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.itemTittle{
+    color: #ffffff;
+    align-items: center;
+    font-family: "Mulish";
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.itemDate{
+    color: #71717A;
+    align-items: center;
+    font-family: "Mulish";
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+.inputsDiv{
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+    align-items: start;
+}
+
+.inputs{
+    display: flex;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);   
+    padding: 8px 16px;
+    align-self: stretch;
+    background: #141414;
+    color: white;
+    font-size:14px;
+    font-family: "Mulish";
+    font-weight: 600;
+}
+
+.inputs option{
+    font-size:14px;
+    font-family: "Mulish";
+    font-weight: 600;
+}
+
+.modalButtons{
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.modalButton{
+    padding: 8px 16px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-family: "Mulish";
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+}

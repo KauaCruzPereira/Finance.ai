@@ -1,4 +1,4 @@
-import { TrendingDownIcon } from '../../../Assets/components/TrendingDown/TrendingDown'
+import { MoneyMovement } from './components/MoneyMovement'
 import './RightSidePage.css'
 
 export function RightSidePage() {
@@ -11,6 +11,7 @@ export function RightSidePage() {
                 </div>
             </div>
             <div className="hrDisplay"></div>
+            <MoneyMovement/>
         </div>
     )
 }

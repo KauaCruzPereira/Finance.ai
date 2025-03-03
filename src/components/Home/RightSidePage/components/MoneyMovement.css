@@ -1,0 +1,52 @@
+.itemsDisplay{
+    gap: 24px;
+    display: flex;
+    flex-direction: column;
+}
+.moneyMovement{
+    gap: 12px;
+    display: flex;
+}
+
+.itemTittle{
+    color: #ffffff;
+    align-items: center;
+    font-family: "Mulish";
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.itemDate{
+    color: #71717A;
+    align-items: center;
+    font-family: "Mulish";
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.earnedMoney{
+    margin-left: auto;
+    align-content: center;
+    color: #55B02E;
+    font-family: "Mulish";
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.investedMoney{
+    margin-left: auto;
+    align-content: center;
+    color: #ffffff;
+    font-family: "Mulish";
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.spentMoney{
+    margin-left: auto;
+    align-content: center;
+    color: #E93030;
+    font-family: "Mulish";
+    font-size: 14px;
+    font-weight: 700;
+}
