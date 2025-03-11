@@ -1,12 +1,26 @@
+import { useEffect, useState } from "react";
 import { TransactionListItemsDisplay } from "./components/TransactionListItemDisplay";
+import { BASE_URL } from "../../../../Utils/api";
 import './MoneyMovement.css'
 
 export function MoneyMovement() {
-    return (
-        <div className="itemsDisplay">
-            <TransactionListItemsDisplay transaction={{ type: '1', tittle: 'Salário', date: '25, Nov, 2024', money: '+R$ 2.412' }} />
-            <TransactionListItemsDisplay transaction={{ type: '2', tittle: 'Despesas', date: '19, Ago, 2018', money: '-R$ 568' }} />
-            <TransactionListItemsDisplay transaction={{ type: '3', tittle: 'Despesas', date: '19, Ago, 2018', money: '-R$ 568' }} />
-        </div>
-    )
+
+	const [data, setData] = useState([])
+	useEffect(() => {
+		fetch(BASE_URL).then(async (res) => {
+			const json = await res.json()
+			setData(json)
+		})
+	}, []);
+
+	return (
+		<div className="itemsDisplay">
+			{
+				data.map((transaction) => {
+					return <TransactionListItemsDisplay key={transaction.id} transaction={transaction} />
+				
+				})
+			}
+		</div>
+	)
 }
