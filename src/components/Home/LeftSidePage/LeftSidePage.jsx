@@ -1,29 +1,46 @@
 import './LeftSidePage.css'
+import '../../../Utils/transactionsMoneyColor.css'
 import { WalletIcon } from '../../../Assets/components/WalletIcon/WalletIcon'
 import { PiggyBankIcon } from '../../../Assets/components/PiggyBank/PiggyBank'
 import { TrendingUpIcon } from '../../../Assets/components/TrendingUp/TrendingUp'
 import { TrendingDownIcon } from '../../../Assets/components/TrendingDown/TrendingDown'
 import { Modal } from '../../Modal/Modal'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import TransactionContext from '../../../contexts/transactionContext'
+import { formatNumbers } from '../../../Utils/formatNumbers'
 
 export function LeftSidePage() {
+	const transactionContext = useContext(TransactionContext)
 	const [modalIsOpen, setModalIsOpen] = useState(false)
+	const [isDisplayingTotalValue, setIsDisplayingTotalValue] = useState(true)
+
+	function getTotalValue() {
+		if (isDisplayingTotalValue == false) {
+			return '• • • • • •'
+		} else {
+			return formatNumbers(transactionContext.getSumTotalValue())
+		}
+	}
+
 	return (
 		<div className="leftSidePage">
 			<div className="moneybalance">
 				<div className="leftside">
 					<div className='walletTextStyle'><WalletIcon /><p>Saldo</p></div>
-					<div className="accountbalance">
-						<p id="moneyBalance">R$ 3.800</p>
+					<div className={`accountbalance ${transactionContext.getSumTotalValue() < 0 ? "spentMoney" : "investedMoney"}`}>
+						{getTotalValue()}
 						<img
 							src="images/eye.svg"
-							alt="Esconder/Mostrar" />
+							alt="Esconder/Mostrar"
+							onClick={() => setIsDisplayingTotalValue(!isDisplayingTotalValue)}
+							style={{ cursor: 'pointer' }}
+						/>
 					</div>
 				</div>
 				<div className="addtransaction">
 					<button
 						className="transactionbutton"
-						onClick={function(){
+						onClick={function () {
 							setModalIsOpen(true)
 						}}
 						id="transactionButton"
@@ -39,18 +56,18 @@ export function LeftSidePage() {
 			<div style={{ display: 'flex', gap: '24px' }}>
 				<div className="investments">
 					<div className='iconsTextStyle'><PiggyBankIcon /><p>Investido</p></div>
-					<div className="financialvalue"><p id="investments">R$ 2.908</p></div>
+					<div className={`${transactionContext.getMoneyColorByType(3)} LeftSideTextDisplay`}>{formatNumbers(transactionContext.getSumInvestedValue())}</div>
 				</div>
 				<div className="inflowoutflow">
-					<div className='iconsTextStyle'><TrendingUpIcon /><p>Receita</p></div>
-					<div className="financialvalue"><p id="revenue">R$ 8.950</p></div>
+					<div className='iconsTextStyle'><TrendingUpIcon /><p>Entrada</p></div>
+					<div className={`${transactionContext.getMoneyColorByType(1)} LeftSideTextDisplay`}>{formatNumbers(transactionContext.getSumRevenueValue())}</div>
 				</div>
 				<div className="inflowoutflow">
-					<div className='iconsTextStyle'><TrendingDownIcon /><p>Despesas</p></div>
-					<div className="financialvalue"><p id="expenses">R$ 2.300</p></div>
+					<div className='iconsTextStyle'><TrendingDownIcon /><p>Saída</p></div>
+					<div className={`${transactionContext.getMoneyColorByType(2)} LeftSideTextDisplay`}>{formatNumbers(transactionContext.getSumExpensesValue())}</div>
 				</div>
 			</div>
-			<Modal modalIsOpen={modalIsOpen} closeModal={setModalIsOpen}/>
+			<Modal modalIsOpen={modalIsOpen} closeModal={setModalIsOpen} />
 		</div>
 	)
 }

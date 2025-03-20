@@ -1,9 +1,15 @@
+import { useContext } from "react";
 import { PiggyBankIcon } from "../../../../../Assets/components/PiggyBank/PiggyBank";
 import { TrendingDownIcon } from "../../../../../Assets/components/TrendingDown/TrendingDown";
 import { TrendingUpIcon } from "../../../../../Assets/components/TrendingUp/TrendingUp";
+import { formatDate } from "../../../../../Utils/formatDate";
 import { formatNumbers } from "../../../../../Utils/formatNumbers";
+import TransactionContext from "../../../../../contexts/transactionContext";
+import '../../../../../Utils/transactionsMoneyColor.css'
 
 export function TransactionListItemsDisplay(props) {
+
+	const transactionContext = useContext(TransactionContext)
 
 	function getTransactionIcon() {
 		if (props.transaction.transactionType == 1) {
@@ -15,17 +21,7 @@ export function TransactionListItemsDisplay(props) {
 		}
 	}
 
-	function getMoneyColor() {
-		if (props.transaction.transactionType == 1) {
-			return "earnedMoney"
-		} else if (props.transaction.transactionType == 2) {
-			return "spentMoney"
-		} else {
-			return "investedMoney"
-		}
-	}
-
-	function showMoneyStatus(){
+	function showMoneyStatus() {
 		return props.transaction.transactionType == 1 ? "+" : "-"
 	}
 
@@ -36,9 +32,10 @@ export function TransactionListItemsDisplay(props) {
 			</div>
 			<div>
 				<div className="itemTittle"><p>{props.transaction.title}</p></div>
-				<div className="itemDate"><p>{props.transaction.date}</p></div>
+				<div className="itemDate"><p>{formatDate(props.transaction.date)}</p></div>
 			</div>
-			<div className={getMoneyColor()}><p>{showMoneyStatus()}{formatNumbers(props.transaction.value)}</p></div>
+			<div className={`${transactionContext.getMoneyColorByType(props.transaction.transactionType)} rightSideTextDisplay`}>
+				<p>{showMoneyStatus()}{formatNumbers(props.transaction.value)}</p></div>
 		</div >
 	)
 }

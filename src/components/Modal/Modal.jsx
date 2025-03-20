@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import ReactModal from 'react-modal';
 import { formatNumbers } from '../../Utils/formatNumbers';
+import TransactionContext from '../../contexts/transactionContext';
 import './Modal.css'
-import { BASE_URL } from '../../Utils/api';
 
 const customStyles = {
   content: {
@@ -22,7 +22,7 @@ const customStyles = {
 };
 
 export function Modal(props) {
-
+  const transactionContext = useContext(TransactionContext)
   const [formData, setFormData] = useState({
     title: "",
     value: "",
@@ -51,16 +51,7 @@ export function Modal(props) {
   }
 
   function setData() {
-    fetch(BASE_URL, {
-      method: "POST",
-      body: JSON.stringify(formData),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }).then(async (res) => {
-      const json = await res.json()
-      console.log(json)
-    })
+    transactionContext.addTransaction(formData)
   }
 
   return (
@@ -86,8 +77,8 @@ export function Modal(props) {
           <label className='itemTittle' htmlFor="transactionType">Tipo da Transação</label>
           <select name="transactionType" className="inputs" value={formData.transactionType} onChange={handleOnInputChange}>
             <option value="" disabled >Selecione</option>
-            <option value="1">Depósito</option>
-            <option value="2">Gasto</option>
+            <option value="1">Entrada</option>
+            <option value="2">Saída</option>
             <option value="3">Investimento</option>
           </select>
         </div>
@@ -116,7 +107,10 @@ export function Modal(props) {
           <div style={{ width: '100%' }}>
             <button
               className="modalButton"
-              onClick={setData}
+              onClick={function () {
+                setData()
+                props.closeModal(false)
+              }}
               style={{
                 backgroundColor: 'rgb(85, 176, 46)',
                 color: 'rgb(255, 255, 255)',

@@ -1,0 +1,25 @@
+.earnedMoney{
+  color: #55B02E;
+}
+
+.investedMoney{
+  color: #ffffff;
+}
+
+.spentMoney{
+  color: #E93030;
+}
+
+.rightSideTextDisplay{
+  font-family: "Mulish";
+  font-size: 14px;
+  font-weight: 700;
+  margin-left: auto;
+  align-content: center;
+}
+
+.LeftSideTextDisplay{
+  font-size: 24px;
+  font-family: "Mulish";
+  font-weight: 700;
+}

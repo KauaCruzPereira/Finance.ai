@@ -1,24 +1,18 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 import { TransactionListItemsDisplay } from "./components/TransactionListItemDisplay";
-import { BASE_URL } from "../../../../Utils/api";
+import TransactionContext from "../../../../contexts/transactionContext";
 import './MoneyMovement.css'
 
 export function MoneyMovement() {
+	const transactionContext = useContext(TransactionContext)
 
-	const [data, setData] = useState([])
-	useEffect(() => {
-		fetch(BASE_URL).then(async (res) => {
-			const json = await res.json()
-			setData(json)
-		})
-	}, []);
+	const filteredTransactions = transactionContext.getTransactionsByMonth(Number(transactionContext.selectedMonth));
 
 	return (
 		<div className="itemsDisplay">
 			{
-				data.map((transaction) => {
-					return <TransactionListItemsDisplay key={transaction.id} transaction={transaction} />
-				
+				filteredTransactions.map((transaction) => {
+					return (<TransactionListItemsDisplay key={transaction.id} transaction={transaction} />)
 				})
 			}
 		</div>

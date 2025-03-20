@@ -1,12 +1,24 @@
+import { useContext } from 'react';
 import './PageTitle.css'
+import TransactionContext from '../../contexts/transactionContext';
 export function PageTitle(){
+
+  const { setSelectedMonth } = useContext(TransactionContext);
+  const currentMonth = new Date
+  
+  
+  function handleSelectedMonth(event){
+     const monthValue = event.target.value
+     setSelectedMonth(monthValue)
+  }
+  
     return(
         <div className="header">
         <div className="leftSideHeader">
           <h1 className="pagetitle">Dashboard</h1>
         </div>
         <div className="rightSideHeader">
-          <select className="chooseMonths" defaultValue="">
+          <select className="chooseMonths" defaultValue={currentMonth.getMonth() + 1} onChange={handleSelectedMonth}>
             <option value="" disabled >Selecione um mês</option>
             <option value="1">Janeiro</option>
             <option value="2">Fevereiro</option>
