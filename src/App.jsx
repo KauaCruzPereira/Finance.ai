@@ -6,6 +6,7 @@ import {
   Route,
   Routes
 } from "react-router-dom";
+import { Login } from './pages/Login';
 
 
 
@@ -18,7 +19,9 @@ function App() {
 
         <Routes>
           <Route path="/" Component={HomePage} />
-          <Route path="/transactions" Component={() => (<h1>iauysdgasidgahjsdkas</h1>)} />
+          <Route path="/login" Component={Login} />
+          <Route path="/transactions" Component={() => (<h1>Página de Transações</h1>)} />
+          <Route path="/subscription" Component={() => (<h1>Página de Assinaturas</h1>)} />
         </Routes>
       </>
     </Router>
