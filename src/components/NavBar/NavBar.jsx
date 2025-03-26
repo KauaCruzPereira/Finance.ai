@@ -8,7 +8,7 @@ export function NavBar() {
                 <div id="logo">
                     <img src="images/Frame 82.svg" alt="FinanceAi logo" />
                 </div>
-                <MenuPage link='financeai' menuTittle="Dashboard" />
+                <MenuPage link='' menuTittle="Dashboard" />
                 <MenuPage link='transactions' menuTittle="Transações" />
                 <MenuPage link='subscription' menuTittle="Assinatura" />
             </div>

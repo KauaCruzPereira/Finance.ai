@@ -1,23 +1,28 @@
 import './index.css'
 import { NavBar } from "./components/NavBar/NavBar"
-import { PageTitle } from './components/PageTitle/PageTitle'
-import { LeftSidePage } from './components/Home/LeftSidePage/LeftSidePage'
-import { RightSidePage } from './components/Home/RightSidePage/RIghtSidePage'
-import { TransactionProvider } from './contexts/transactionContext'
+import HomePage from './pages/Home'
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes
+} from "react-router-dom";
+
+
+
 
 function App() {
-
   return (
-    <TransactionProvider>
-      <NavBar />
-      <PageTitle />
-      <div className='pageContent'>
-        <LeftSidePage />
-        <RightSidePage />
-      </div>
-      
-    </TransactionProvider>
-  )
+    <Router>
+      <>
+        <NavBar />
+
+        <Routes>
+          <Route path="/" Component={HomePage} />
+          <Route path="/transactions" Component={() => (<h1>iauysdgasidgahjsdkas</h1>)} />
+        </Routes>
+      </>
+    </Router>
+  );
 }
 
 export default App
