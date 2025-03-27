@@ -67,7 +67,7 @@ export function Modal(props) {
         </div>
         <div className='inputsDiv'>
           <label className='itemTittle' htmlFor="title">Título</label>
-          <input type="text" name="title" className="inputs" placeholder='Título' autoComplete='off' value={formData.tile} onChange={handleOnInputChange} />
+          <input type="text" name="title" className="inputs" placeholder='Título' autoComplete='off' value={formData.title} onChange={handleOnInputChange} />
         </div>
         <div className='inputsDiv'>
           <label className='itemTittle ' htmlFor="value">Valor</label>

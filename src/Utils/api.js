@@ -1,1 +1,1 @@
-export const BASE_URL = "https://finance-ai-backend-six.vercel.app"
+export const baseUrl = import.meta.env.VITE_API_URL

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { BASE_URL } from "../Utils/api";
 import { getDateFromString } from "../Utils/formatDate";
+import { baseUrl } from "../Utils/api";
 
 const TransactionContext = React.createContext({
   transactions: [],
@@ -14,14 +14,14 @@ export const TransactionProvider = function ({ children }) {
   const [selectedMonth, setSelectedMonth] = useState(currentMonth.getMonth() + 1)
 
   useEffect(() => {
-    fetch(BASE_URL).then(async (res) => {
+    fetch(`${baseUrl}/transaction`).then(async (res) => {
       const json = await res.json()
       setTransactions(json)
     })
   }, [])
 
   async function addTransaction(transaction) {
-    const res = await fetch(BASE_URL, {
+    const res = await fetch(`${baseUrl}/transaction`, {
       method: "POST",
       body: JSON.stringify(transaction),
       headers: {
