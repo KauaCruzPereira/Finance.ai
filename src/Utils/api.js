@@ -1,1 +1,1 @@
-export const BASE_URL = "http://localhost:2077/transaction"
+export const BASE_URL = "https://finance-ai-backend-six.vercel.app"
