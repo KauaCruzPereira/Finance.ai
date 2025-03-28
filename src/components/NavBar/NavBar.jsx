@@ -1,7 +1,9 @@
+import { useContext } from "react"
 import { MenuPage } from "./components/MenuPage/MenuPage"
 import "./styles.css"
+import AuthContext from "../../contexts/authContext"
 export function NavBar() {
-
+    const authContext = useContext(AuthContext)
     return (
         <div id="navbar">
             <div id="barinterior">
@@ -22,7 +24,7 @@ export function NavBar() {
                             height: '20px',
                             flexShrink: 0
                         }}
-                    />Usuário
+                    />{authContext.user.name}
                 </div>
             </div>
         </div>

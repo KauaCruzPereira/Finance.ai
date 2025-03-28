@@ -45,20 +45,20 @@ export function Register() {
           </div>
           <div className='inputsDiv'>
             <label htmlFor="name">Nome</label>
-            <input type="text" name="name" id="name" className='inputs' value={formData.name} onChange={handleOnInputChange} />
+            <input type="text" name="name" id="name" className='inputs' value={formData.name} onChange={handleOnInputChange} autoComplete='off'/>
             <label htmlFor="email">Email</label>
-            <input type="email" name="email" id="email" className='inputs' value={formData.email} onChange={handleOnInputChange} />
+            <input type="email" name="email" id="email" className='inputs' value={formData.email} onChange={handleOnInputChange} autoComplete='off'/>
             <label htmlFor="password">Senha</label>
-            <input type="password" name="password" id="password" className='inputs' value={formData.password} onChange={handleOnInputChange} />
+            <input type="password" name="password" id="password" className='inputs' value={formData.password} onChange={handleOnInputChange} autoComplete='off'/>
             <label htmlFor="confirmPassword">Confirme sua senha</label>
-            <input type="password" name="confirmPassword" id="pasconfirmPasswordword" className='inputs' value={formData.confirmPassword} onChange={handleOnInputChange} />
+            <input type="password" name="confirmPassword" id="pasconfirmPasswordword" className='inputs' value={formData.confirmPassword} onChange={handleOnInputChange} autoComplete='off'/>
           </div>
           <div
             className='loginButtonDiv'><button type="button" className='loginButton'
               onClick={function () {
                 register()
               }}>Registrar</button>
-            <p className='registerLink'><a href="">Já possui conta? Faça o login aqui.</a></p>
+            <p className='registerLink'><a href="http://localhost:5173/login">Já possui conta? Faça o login aqui.</a></p>
           </div>
 
         </div>

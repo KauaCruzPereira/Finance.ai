@@ -75,7 +75,7 @@ export function Modal(props) {
         </div>
         <div className='inputsDiv'>
           <label className='itemTittle' htmlFor="transactionType">Tipo da Transação</label>
-          <select name="transactionType" className="inputs" value={formData.transactionType} onChange={handleOnInputChange}>
+          <select name="transactionType" className="inputs" value={formData.transaction_type} onChange={handleOnInputChange}>
             <option value="" disabled >Selecione</option>
             <option value="1">Entrada</option>
             <option value="2">Saída</option>

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { getDateFromString } from "../Utils/formatDate";
 import { baseUrl } from "../Utils/api";
 
 const TransactionContext = React.createContext({
@@ -14,18 +13,26 @@ export const TransactionProvider = function ({ children }) {
   const [selectedMonth, setSelectedMonth] = useState(currentMonth.getMonth() + 1)
 
   useEffect(() => {
-    fetch(`${baseUrl}/transaction`).then(async (res) => {
+    const token = localStorage.getItem('API_TOKEN')
+    fetch(`${baseUrl}/transaction`, {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
+      }
+    }).then(async (res) => {
       const json = await res.json()
       setTransactions(json)
     })
   }, [])
 
   async function addTransaction(transaction) {
+    const token = await localStorage.getItem('API_TOKEN')
     const res = await fetch(`${baseUrl}/transaction`, {
       method: "POST",
       body: JSON.stringify(transaction),
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
       }
     })
     if (res.status == 201) {
@@ -37,7 +44,7 @@ export const TransactionProvider = function ({ children }) {
   function sumTransactionsByType(type) {
     let transactionValue = 0
     getTransactionsByMonth(selectedMonth).forEach(usuario => {
-      if (usuario.transactionType == type) {
+      if (usuario.transaction_type == type) {
         transactionValue = Number(usuario.value.toString().replace(/\D/g, '')) + transactionValue
       }
     })
@@ -63,10 +70,11 @@ export const TransactionProvider = function ({ children }) {
   }
 
   function getTransactionsByMonth(month) {
+    console.log(transactions)
     return transactions.filter((transaction) => {
-      const dateObject = getDateFromString(transaction.date);
+      const dateObject = new Date(transaction.date);
       const currentDate = new Date();
-
+      console.log(dateObject)
       return dateObject.getMonth() + 1 === Number(month) && dateObject.getFullYear() === currentDate.getFullYear();
     });
   }

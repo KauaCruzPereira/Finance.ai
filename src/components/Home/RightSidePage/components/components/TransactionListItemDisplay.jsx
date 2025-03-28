@@ -12,17 +12,18 @@ export function TransactionListItemsDisplay(props) {
 	const transactionContext = useContext(TransactionContext)
 
 	function getTransactionIcon() {
-		if (props.transaction.transactionType == 1) {
+		if (props.transaction.transaction_type == 1) {
 			return <TrendingUpIcon />
-		} else if (props.transaction.transactionType == 2) {
+		} else if (props.transaction.transaction_type == 2) {
 			return <TrendingDownIcon />
 		} else {
+			console.log(props.transaction)
 			return <PiggyBankIcon />
 		}
 	}
 
 	function showMoneyStatus() {
-		return props.transaction.transactionType == 1 ? "+" : "-"
+		return props.transaction.transaction_type == 1 ? "+" : "-"
 	}
 
 	return (
@@ -34,7 +35,7 @@ export function TransactionListItemsDisplay(props) {
 				<div className="itemTittle"><p>{props.transaction.title}</p></div>
 				<div className="itemDate"><p>{formatDate(props.transaction.date)}</p></div>
 			</div>
-			<div className={`${transactionContext.getMoneyColorByType(props.transaction.transactionType)} rightSideTextDisplay`}>
+			<div className={`${transactionContext.getMoneyColorByType(props.transaction.transaction_type)} rightSideTextDisplay`}>
 				<p>{showMoneyStatus()}{formatNumbers(props.transaction.value)}</p></div>
 		</div >
 	)
